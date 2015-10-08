@@ -37,9 +37,9 @@ public class TestUtility {
 	 * @param aName
 	 */
 	public static void takeScreenshot(WebDriver driver, String aName) {
-		File classPathRoot = new File(System.getProperty("user.dir"));
-		File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 		try {
+			File classPathRoot = new File(System.getProperty("user.dir"));
+			File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 			FileUtils.copyFile(scrFile, new File(new File(classPathRoot, "/screenshot"), aName + ".png"));
 		} catch (IOException e) {
 			System.err.println(e.getMessage());
