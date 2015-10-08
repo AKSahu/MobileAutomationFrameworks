@@ -40,7 +40,6 @@ public class TestBase {
 		capabilities.setCapability("platformName", "Android");
 		// capabilities.setCapability("platformVersion", "4.4.2");
 		capabilities.setCapability("deviceName", "Nexus7");
-		// capabilities.setCapability("deviceName", "AndroidAVD");
 
 		capabilities.setCapability("app", app.getAbsolutePath());
 		capabilities.setCapability("appPackage", appPackage);
@@ -81,11 +80,10 @@ public class TestBase {
 
 	@AfterSuite(alwaysRun = true)
 	public void teardown() {
-
+		if (driver != null) {
+			driver.closeApp();
+			// driver.removeApp(appPackage);
+		}
 		service.stopAppiumServer();
-		// if (driver != null) {
-		// driver.quit();
-		// driver.removeApp(appPackage);
-		// }
 	}
 }

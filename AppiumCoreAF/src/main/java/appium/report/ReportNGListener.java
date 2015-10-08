@@ -6,11 +6,12 @@ import org.testng.ITestResult;
 import org.testng.Reporter;
 import org.testng.TestListenerAdapter;
 
+import appium.base.DriverManager;
 import appium.base.TestUtility;
 
 /**
  * This class has to be added to the testng task to listen for events.
- *  
+ * 
  * Example usage:
  * 
  * <pre>
@@ -21,6 +22,8 @@ import appium.base.TestUtility;
  * @author A. K. Sahu
  */
 public class ReportNGListener extends TestListenerAdapter {
+
+	private int count = 0;
 
 	@Override
 	public void onTestFailure(ITestResult result) {
@@ -54,6 +57,13 @@ public class ReportNGListener extends TestListenerAdapter {
 			String testName = result.getName();
 			String screenshotFileUrl = "file:///" + TestUtility.getScreenshotDirectory() + File.separator + testName
 					+ ".png";
+
+			if (status.equals("SKIPPED")) {
+				if (count == 0) {// take only one screenshot
+					TestUtility.takeScreenshot(new DriverManager().getDriver(), testName);
+					count++;
+				}
+			}
 
 			Reporter.setEscapeHtml(false);
 			Reporter.setCurrentTestResult(result);
