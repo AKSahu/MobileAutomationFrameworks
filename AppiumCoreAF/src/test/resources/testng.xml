@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="WordPress Application">
+	<test name="WordPress Test">
+		<classes>
+			<class name="appium.test.WordPressTest" />
+			<!-- <class name="appium.test.WebTest" /> -->
+		</classes>
+	</test>
+</suite>
