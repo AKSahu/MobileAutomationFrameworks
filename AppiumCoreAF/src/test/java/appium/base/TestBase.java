@@ -13,7 +13,6 @@ import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 
-import io.appium.java_client.android.AndroidDriver;
 
 public class TestBase {
 
