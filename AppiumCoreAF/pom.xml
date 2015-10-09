@@ -120,6 +120,18 @@
 							<name>org.uncommons.reportng.escape-output</name>
 							<value>false</value>
 						</property>
+						<property>
+							<name>org.uncommons.reportng.coverage-report</name>
+							<value>true</value>
+						</property>
+						<property>
+							<name>org.uncommons.reportng.frames</name>
+							<value>false</value>
+						</property>
+						<property>
+							<name>org.uncommons.reportng.title</name>
+							<value>WordPress App - Test Report</value>
+						</property>
 					</systemProperties>
 					<properties>
 						<!-- disabling default listeners is optional -->
@@ -132,12 +144,12 @@
 							<value>
 								org.uncommons.reportng.HTMLReporter,
 								org.uncommons.reportng.JUnitXMLReporter,
-								appium.report.ReportNGListener
+								appium.report.ReportNGCommandLogListener
 							</value>
 						</property>
 					</properties>
 					<forkMode>always</forkMode>
-					<workingDirectory>${project.basedir}/target/</workingDirectory> 
+					<workingDirectory>${project.basedir}/target/</workingDirectory>
 					<reportsDirectory>${project.basedir}/target/</reportsDirectory>
 					<suiteXmlFiles>
 						<!-- TestNG suite XML files -->
