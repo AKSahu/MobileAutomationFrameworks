@@ -22,6 +22,7 @@ import org.openqa.selenium.remote.CommandExecutor;
 import org.openqa.selenium.remote.ErrorHandler;
 import org.openqa.selenium.remote.ExecuteMethod;
 import org.openqa.selenium.remote.FileDetector;
+import org.openqa.selenium.remote.RemoteWebElement;
 import org.openqa.selenium.remote.Response;
 import org.openqa.selenium.remote.SessionId;
 import org.openqa.selenium.remote.internal.JsonToWebElementConverter;
@@ -30,12 +31,31 @@ import com.google.gson.JsonObject;
 
 import appium.report.CommandList;
 import io.appium.java_client.AppiumSetting;
+import io.appium.java_client.MobileElement;
 import io.appium.java_client.MultiTouchAction;
 import io.appium.java_client.NetworkConnectionSetting;
 import io.appium.java_client.TouchAction;
+import io.appium.java_client.TouchableElement;
+import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.service.local.AppiumDriverLocalService;
 import io.appium.java_client.service.local.AppiumServiceBuilder;
 
+/**
+ * This class implements all the methods associated with
+ * {@link io.appium.java_client.android.AndroidDriver}
+ * 
+ * @author A. K. Sahu
+ *
+ * @param <RequiredElementType>
+ *            means the required type from the list of allowed types below that
+ *            implement {@link WebElement} Instances of the defined type will be
+ *            returned via findElement* and findElements*. Warning (!!!).
+ *            Allowed types:<br/>
+ *            {@link WebElement}<br/>
+ *            {@link TouchableElement}<br/>
+ *            {@link RemoteWebElement}<br/>
+ *            {@link MobileElement} {@link AndroidElement}
+ */
 public class AndroidDriver<RequiredElementType extends WebElement>
 		extends io.appium.java_client.android.AndroidDriver<RequiredElementType> {
 
