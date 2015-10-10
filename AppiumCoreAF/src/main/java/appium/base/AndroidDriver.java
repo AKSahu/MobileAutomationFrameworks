@@ -19,6 +19,7 @@ import org.openqa.selenium.html5.Location;
 import org.openqa.selenium.interactions.Keyboard;
 import org.openqa.selenium.interactions.Mouse;
 import org.openqa.selenium.remote.CommandExecutor;
+import org.openqa.selenium.remote.DriverCommand;
 import org.openqa.selenium.remote.ErrorHandler;
 import org.openqa.selenium.remote.ExecuteMethod;
 import org.openqa.selenium.remote.FileDetector;
@@ -492,8 +493,7 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	protected Response execute(String command) {
-		CommandList.getInstance().reportSuccess("Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
-				+ "' with input parameter(s) '" + command + "'");
+		CommandList.getInstance().reportSuccess("Executing driver command: '" + command + "'");
 		return super.execute(command);
 	}
 
@@ -911,15 +911,34 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 * @see io.appium.java_client.DefaultGenericMobileDriver#execute(java.lang.
 	 * String, java.util.Map)
 	 */
-	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	public Response execute(String driverCommand, Map<String, ?> parameters) {
-		List mapValues = null;
-		if (parameters != null) {
-			mapValues = new ArrayList(parameters.values());
+		if (parameters != null && parameters.containsKey("using") && parameters.containsKey("value")) {
+			String aCommand = String.format("{Using=%s, value=%s}", parameters.get("using"), parameters.get("value"));
+			CommandList.getInstance().reportSuccess(
+					"Executing driver command '" + driverCommand + "' with input parameter(s) '" + aCommand + "'");
+		} else if (driverCommand.equals(DriverCommand.SEND_KEYS_TO_ELEMENT)) {
+			CommandList.getInstance().reportSuccess("Executing driver command '" + driverCommand
+					+ "' with input parameter(s) '" + parameters.get("value").toString() + "'");
+			// TODO need to handle (Ljava.lang.CharSequence;@fba92d3)
+		} else if (driverCommand.equals(DriverCommand.FIND_ELEMENT) | driverCommand.equals(DriverCommand.FIND_ELEMENTS)
+				| driverCommand.equals(DriverCommand.CLEAR_ELEMENT) | driverCommand.equals(DriverCommand.CLICK_ELEMENT)
+				| driverCommand.equals(DriverCommand.IS_ELEMENT_DISPLAYED)
+				| driverCommand.equals(DriverCommand.IS_ELEMENT_ENABLED)
+				| driverCommand.equals(DriverCommand.IS_ELEMENT_SELECTED)
+				| driverCommand.equals(DriverCommand.GET_ELEMENT_TEXT)) {
+			// TODO update for remaining driver commands
+			CommandList.getInstance()
+					.reportSuccess("Executing driver command '" + driverCommand + "' for the above found element");
+		} else {
+			if (parameters != null) {
+				@SuppressWarnings({ "rawtypes", "unchecked" })
+				List mapValues = new ArrayList(parameters.values());
+				CommandList.getInstance().reportSuccess(
+						"Executing driver command '" + driverCommand + "' with input parameter(s) '" + mapValues + "'");
+			}
 		}
-		CommandList.getInstance().reportSuccess("Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
-				+ "' for driver command '" + driverCommand + "' with input parameter(s) '" + mapValues + "'");
+
 		return super.execute(driverCommand, parameters);
 	}
 
