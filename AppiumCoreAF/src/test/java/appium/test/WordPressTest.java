@@ -9,6 +9,12 @@ import org.testng.annotations.Test;
 import appium.base.TestBase;
 import appium.page.SignInPage;
 
+/**
+ * An example class for testing WordPress application using the appium framework
+ * 
+ * @author A. K. Sahu
+ *
+ */
 public class WordPressTest extends TestBase {
 
 	@Test
@@ -23,8 +29,10 @@ public class WordPressTest extends TestBase {
 		WebElement signInBtn = driver.findElement(SignInPage.SIGN_IN_BUTTON);
 		Assert.assertFalse(signInBtn.isEnabled(), "The button should not be enabled!");
 
-	}
+		Assert.assertFalse(true, "Failing the test to check report :)");// TODO
+																		// remove
 
+	}
 
 	@Test
 	public void testSignInButtonEnableDisable() {
