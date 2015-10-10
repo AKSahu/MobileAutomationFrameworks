@@ -1,7 +1,6 @@
 package appium.report;
 
 import java.io.File;
-import java.util.Arrays;
 
 import org.testng.ITestContext;
 import org.testng.ITestResult;
@@ -20,8 +19,8 @@ import appium.base.TestUtility;
  * Example usage:
  * 
  * <pre>
- * <testng outputdir="reports/reportng" groups="smoke" useDefaultListeners="true"
- *         listener="org.uncommons.reportng.HTMLReporter,org.uncommons.reportng.JUnitXMLReporter,com.pramati.core.util.CustomizedReportNGListener">
+ * <testng outputdir="reports/reportng" useDefaultListeners="true"
+ *         listener="org.uncommons.reportng.HTMLReporter,org.uncommons.reportng.JUnitXMLReporter,appium.report.ReportNGCommandLogListener">
  * </pre>
  * 
  * @author A. K. Sahu
@@ -39,8 +38,8 @@ public class ReportNGCommandLogListener extends TestListenerAdapter {
 	@Override
 	public void onStart(ITestContext testContext) {
 
-		CommandList.getInstance().clearCommandLog();
 		super.onStart(testContext);
+		CommandList.getInstance().clearCommandLog();
 	}
 
 	/*
@@ -51,45 +50,22 @@ public class ReportNGCommandLogListener extends TestListenerAdapter {
 	@Override
 	public void onFinish(ITestContext testContext) {
 
-		CommandList.getInstance().clearCommandLog();
 		super.onFinish(testContext);
+		CommandList.getInstance().clearCommandLog();
 	}
 
-	//
-	// /* (non-Javadoc)
-	// * @see org.testng.TestListenerAdapter#onTestStart(org.testng.ITestResult)
-	// */
-	// @Override
-	// public void onTestStart(ITestResult result) {
-	//
-	// CommandList.getInstance().clearSuccessList();
-	// CommandList.getInstance().clearFailureList();
-	// super.onTestStart(result);
-	// }
-	//
-	// @Override
-	// public void onConfigurationSuccess(ITestResult result) {
-	// super.onConfigurationSuccess(result);
-	//
-	// CommandList.getInstance().clearSuccessList();
-	// CommandList.getInstance().clearFailureList();
-	// }
-	//
-	// @Override
-	// public void onConfigurationFailure(ITestResult result) {
-	// super.onConfigurationFailure(result);
-	//
-	// CommandList.getInstance().clearSuccessList();
-	// CommandList.getInstance().clearFailureList();
-	// }
-	//
-	// @Override
-	// public void onConfigurationSkip(ITestResult result) {
-	// super.onConfigurationSkip(result);
-	//
-	// CommandList.getInstance().clearSuccessList();
-	// CommandList.getInstance().clearFailureList();
-	// }
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.testng.TestListenerAdapter#beforeConfiguration(org.testng.
+	 * ITestContext)
+	 */
+	@Override
+	public void beforeConfiguration(ITestResult result) {
+		super.beforeConfiguration(result);
+
+		CommandList.getInstance().clearCommandLog();
+	}
 
 	@Override
 	public void onTestSuccess(ITestResult result) {
@@ -103,7 +79,7 @@ public class ReportNGCommandLogListener extends TestListenerAdapter {
 
 		super.onTestFailure(result);
 		CommandList.getInstance().reportFailure(result.getThrowable().toString());
-		CommandList.getInstance().reportFailure(Arrays.asList(result.getThrowable().getStackTrace()).toString());
+		// CommandList.getInstance().reportFailure(Arrays.asList(result.getThrowable().getStackTrace()).toString());
 		doReportNGReporting(result, "FAILED");
 
 	}
@@ -150,7 +126,7 @@ public class ReportNGCommandLogListener extends TestListenerAdapter {
 
 			Reporter.log("<b>Screenshot</b><br>");
 			Reporter.log("<p><a href='" + screenshotFileUrl + "'>" + "<img src='" + screenshotFileUrl
-					+ "' height='100' width='100'/></a>");
+					+ "' height='100' width='100' title='" + testName + "'/></a>");
 			Reporter.log("<p>");
 			Reporter.log("<font size=1>Click thumbnail image to view screenshot</font><p><br></font>");
 

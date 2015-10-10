@@ -15,8 +15,8 @@ import appium.base.TestUtility;
  * Example usage:
  * 
  * <pre>
- * <testng outputdir="reports/reportng" groups="smoke" useDefaultListeners="true"
- *         listener="org.uncommons.reportng.HTMLReporter,org.uncommons.reportng.JUnitXMLReporter,com.pramati.core.util.GenericReportNGListener">
+ * <testng outputdir="reports/reportng" useDefaultListeners="true"
+ *         listener="org.uncommons.reportng.HTMLReporter,org.uncommons.reportng.JUnitXMLReporter,appium.report.ReportNGListener">
  * </pre>
  * 
  * @author A. K. Sahu
