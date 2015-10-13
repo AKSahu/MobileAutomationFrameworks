@@ -19,10 +19,15 @@ public class AppiumServer {
 	public AppiumServer() {
 		File classPathRoot = new File(System.getProperty("user.dir"));
 
-		service = AppiumDriverLocalService.buildService(
-				new AppiumServiceBuilder().usingDriverExecutable(new File(appiumInstallationDir + "/Appium/node.exe"))
-						.withAppiumJS(new File(appiumInstallationDir + "/Appium/node_modules/appium/bin/appium.js"))
-						.withLogFile(new File(new File(classPathRoot, "/log"), "androidlog.txt")));
+		service = AppiumDriverLocalService
+				.buildService(
+						new AppiumServiceBuilder()
+								.usingDriverExecutable(new File(appiumInstallationDir + File.separator + "Appium"
+										+ File.separator + "node.exe"))
+				.withAppiumJS(
+						new File(appiumInstallationDir + File.separator + "Appium" + File.separator + "node_modules"
+								+ File.separator + "appium" + File.separator + "bin" + File.separator + "appium.js"))
+				.withLogFile(new File(new File(classPathRoot, File.separator + "log"), "androidlog.txt")));
 	}
 
 	/**
