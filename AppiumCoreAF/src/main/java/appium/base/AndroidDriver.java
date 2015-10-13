@@ -219,10 +219,12 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	@Override
 	public void startActivity(String appPackage, String appActivity, String appWaitPackage, String appWaitActivity)
 			throws IllegalArgumentException {
-		CommandList.getInstance()
-				.reportSuccess("Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
-						+ "' with input parameter(s) '" + appPackage + "' , '" + appActivity + "' , '" + appWaitPackage
-						+ "' and '" + appWaitActivity + "'");
+		// CommandList.getInstance()
+		// .reportSuccess("Invoking '" +
+		// Thread.currentThread().getStackTrace()[1].getMethodName()
+		// + "' with input parameter(s) '" + appPackage + "' , '" + appActivity
+		// + "' , '" + appWaitPackage
+		// + "' and '" + appWaitActivity + "'");
 		super.startActivity(appPackage, appActivity, appWaitPackage, appWaitActivity);
 	}
 
@@ -234,8 +236,10 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	public void startActivity(String appPackage, String appActivity) throws IllegalArgumentException {
-		CommandList.getInstance().reportSuccess("Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
-				+ "' with input parameter(s) '" + appPackage + "' and '" + appActivity + "'");
+		// CommandList.getInstance().reportSuccess("Invoking '" +
+		// Thread.currentThread().getStackTrace()[1].getMethodName()
+		// + "' with input parameter(s) '" + appPackage + "' and '" +
+		// appActivity + "'");
 		super.startActivity(appPackage, appActivity);
 	}
 
@@ -365,8 +369,9 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	public List findElementsById(String id) {
-		CommandList.getInstance().reportSuccess("Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
-				+ "' with input parameter(s) '" + id + "'");
+		// CommandList.getInstance().reportSuccess("Invoking '" +
+		// Thread.currentThread().getStackTrace()[1].getMethodName()
+		// + "' with input parameter(s) '" + id + "'");
 		return super.findElementsById(id);
 	}
 
@@ -379,8 +384,9 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	public List findElementsByLinkText(String using) {
-		CommandList.getInstance().reportSuccess("Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
-				+ "' with input parameter(s) '" + using + "'");
+		// CommandList.getInstance().reportSuccess("Invoking '" +
+		// Thread.currentThread().getStackTrace()[1].getMethodName()
+		// + "' with input parameter(s) '" + using + "'");
 		return super.findElementsByLinkText(using);
 	}
 
@@ -394,8 +400,9 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	public List findElementsByPartialLinkText(String using) {
-		CommandList.getInstance().reportSuccess("Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
-				+ "' with input parameter(s) '" + using + "'");
+		// CommandList.getInstance().reportSuccess("Invoking '" +
+		// Thread.currentThread().getStackTrace()[1].getMethodName()
+		// + "' with input parameter(s) '" + using + "'");
 		return super.findElementsByPartialLinkText(using);
 	}
 
@@ -408,8 +415,9 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	public List findElementsByTagName(String using) {
-		CommandList.getInstance().reportSuccess("Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
-				+ "' with input parameter(s) '" + using + "'");
+		// CommandList.getInstance().reportSuccess("Invoking '" +
+		// Thread.currentThread().getStackTrace()[1].getMethodName()
+		// + "' with input parameter(s) '" + using + "'");
 		return super.findElementsByTagName(using);
 	}
 
@@ -422,8 +430,9 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	public List findElementsByName(String using) {
-		CommandList.getInstance().reportSuccess("Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
-				+ "' with input parameter(s) '" + using + "'");
+		// CommandList.getInstance().reportSuccess("Invoking '" +
+		// Thread.currentThread().getStackTrace()[1].getMethodName()
+		// + "' with input parameter(s) '" + using + "'");
 		return super.findElementsByName(using);
 	}
 
@@ -437,8 +446,9 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	public List findElementsByClassName(String using) {
-		CommandList.getInstance().reportSuccess("Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
-				+ "' with input parameter(s) '" + using + "'");
+		// CommandList.getInstance().reportSuccess("Invoking '" +
+		// Thread.currentThread().getStackTrace()[1].getMethodName()
+		// + "' with input parameter(s) '" + using + "'");
 		return super.findElementsByClassName(using);
 	}
 
@@ -452,8 +462,9 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	public List findElementsByCssSelector(String using) {
-		CommandList.getInstance().reportSuccess("Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
-				+ "' with input parameter(s) '" + using + "'");
+		// CommandList.getInstance().reportSuccess("Invoking '" +
+		// Thread.currentThread().getStackTrace()[1].getMethodName()
+		// + "' with input parameter(s) '" + using + "'");
 		return super.findElementsByCssSelector(using);
 	}
 
@@ -466,8 +477,9 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	public List findElementsByXPath(String using) {
-		CommandList.getInstance().reportSuccess("Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
-				+ "' with input parameter(s) '" + using + "'");
+		// CommandList.getInstance().reportSuccess("Invoking '" +
+		// Thread.currentThread().getStackTrace()[1].getMethodName()
+		// + "' with input parameter(s) '" + using + "'");
 		return super.findElementsByXPath(using);
 	}
 
@@ -481,8 +493,9 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	public List findElementsByAccessibilityId(String using) {
-		CommandList.getInstance().reportSuccess("Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
-				+ "' with input parameter(s) '" + using + "'");
+		// CommandList.getInstance().reportSuccess("Invoking '" +
+		// Thread.currentThread().getStackTrace()[1].getMethodName()
+		// + "' with input parameter(s) '" + using + "'");
 		return super.findElementsByAccessibilityId(using);
 	}
 
@@ -916,18 +929,27 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 		if (parameters != null && parameters.containsKey("using") && parameters.containsKey("value")) {
 			String aCommand = String.format("{Using=%s, value=%s}", parameters.get("using"), parameters.get("value"));
 			CommandList.getInstance().reportSuccess(
-					"Executing driver command '" + driverCommand + "' with input parameter(s) '" + aCommand + "'");
+					"Executing driver command '" + driverCommand + "' with input parameter(s): " + aCommand);
 		} else if (driverCommand.equals(DriverCommand.SEND_KEYS_TO_ELEMENT)) {
 			CommandList.getInstance().reportSuccess("Executing driver command '" + driverCommand
-					+ "' with input parameter(s) '" + parameters.get("value").toString() + "'");
+					+ "' with input parameter(s): " + parameters.get("value").toString());
 			// TODO need to handle (Ljava.lang.CharSequence;@fba92d3)
 		} else if (driverCommand.equals(DriverCommand.FIND_ELEMENT) | driverCommand.equals(DriverCommand.FIND_ELEMENTS)
 				| driverCommand.equals(DriverCommand.CLEAR_ELEMENT) | driverCommand.equals(DriverCommand.CLICK_ELEMENT)
 				| driverCommand.equals(DriverCommand.IS_ELEMENT_DISPLAYED)
 				| driverCommand.equals(DriverCommand.IS_ELEMENT_ENABLED)
 				| driverCommand.equals(DriverCommand.IS_ELEMENT_SELECTED)
-				| driverCommand.equals(DriverCommand.GET_ELEMENT_TEXT)) {
-			// TODO update for remaining driver commands
+				| driverCommand.equals(DriverCommand.GET_ELEMENT_TEXT)
+				| driverCommand.equals(DriverCommand.SUBMIT_ELEMENT)
+				| driverCommand.equals(DriverCommand.GET_ELEMENT_TAG_NAME)
+				| driverCommand.equals(DriverCommand.GET_ELEMENT_LOCATION)
+				| driverCommand.equals(DriverCommand.GET_ELEMENT_SIZE)
+				| driverCommand.equals(DriverCommand.GET_ELEMENT_ATTRIBUTE)
+				| driverCommand.equals(DriverCommand.GET_ELEMENT_VALUE_OF_CSS_PROPERTY)
+				| driverCommand.equals(DriverCommand.DOUBLE_CLICK) | driverCommand.equals(DriverCommand.MOUSE_DOWN)
+				| driverCommand.equals(DriverCommand.MOUSE_UP) | driverCommand.equals(DriverCommand.MOVE_TO)
+				| driverCommand.equals(DriverCommand.FIND_CHILD_ELEMENTS)
+				| driverCommand.equals(DriverCommand.FIND_CHILD_ELEMENT)) {
 			CommandList.getInstance()
 					.reportSuccess("Executing driver command '" + driverCommand + "' for the above found element");
 		} else {
@@ -935,7 +957,7 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 				@SuppressWarnings({ "rawtypes", "unchecked" })
 				List mapValues = new ArrayList(parameters.values());
 				CommandList.getInstance().reportSuccess(
-						"Executing driver command '" + driverCommand + "' with input parameter(s) '" + mapValues + "'");
+						"Executing driver command '" + driverCommand + "' with input parameter(s): " + mapValues);
 			}
 		}
 
@@ -966,8 +988,9 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	public RequiredElementType findElementById(String id) {
-		CommandList.getInstance().reportSuccess("Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
-				+ "' with input parameter(s) '" + id + "'");
+		// CommandList.getInstance().reportSuccess("Invoking '" +
+		// Thread.currentThread().getStackTrace()[1].getMethodName()
+		// + "' with input parameter(s) '" + id + "'");
 		return super.findElementById(id);
 	}
 
@@ -980,8 +1003,9 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	public RequiredElementType findElementByLinkText(String using) throws WebDriverException {
-		CommandList.getInstance().reportSuccess("Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
-				+ "' with input parameter(s) '" + using + "'");
+		// CommandList.getInstance().reportSuccess("Invoking '" +
+		// Thread.currentThread().getStackTrace()[1].getMethodName()
+		// + "' with input parameter(s) '" + using + "'");
 		return super.findElementByLinkText(using);
 	}
 
@@ -993,8 +1017,9 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	public RequiredElementType findElementByPartialLinkText(String using) throws WebDriverException {
-		CommandList.getInstance().reportSuccess("Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
-				+ "' with input parameter(s) '" + using + "'");
+		// CommandList.getInstance().reportSuccess("Invoking '" +
+		// Thread.currentThread().getStackTrace()[1].getMethodName()
+		// + "' with input parameter(s) '" + using + "'");
 		return super.findElementByPartialLinkText(using);
 	}
 
@@ -1007,8 +1032,9 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	public RequiredElementType findElementByTagName(String using) {
-		CommandList.getInstance().reportSuccess("Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
-				+ "' with input parameter(s) '" + using + "'");
+		// CommandList.getInstance().reportSuccess("Invoking '" +
+		// Thread.currentThread().getStackTrace()[1].getMethodName()
+		// + "' with input parameter(s) '" + using + "'");
 		return super.findElementByTagName(using);
 	}
 
@@ -1021,8 +1047,9 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	public RequiredElementType findElementByName(String using) {
-		CommandList.getInstance().reportSuccess("Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
-				+ "' with input parameter(s) '" + using + "'");
+		// CommandList.getInstance().reportSuccess("Invoking '" +
+		// Thread.currentThread().getStackTrace()[1].getMethodName()
+		// + "' with input parameter(s) '" + using + "'");
 		return super.findElementByName(using);
 	}
 
@@ -1035,8 +1062,9 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	public RequiredElementType findElementByClassName(String using) {
-		CommandList.getInstance().reportSuccess("Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
-				+ "' with input parameter(s) '" + using + "'");
+		// CommandList.getInstance().reportSuccess("Invoking '" +
+		// Thread.currentThread().getStackTrace()[1].getMethodName()
+		// + "' with input parameter(s) '" + using + "'");
 		return super.findElementByClassName(using);
 	}
 
@@ -1049,8 +1077,9 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	public RequiredElementType findElementByCssSelector(String using) throws WebDriverException {
-		CommandList.getInstance().reportSuccess("Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
-				+ "' with input parameter(s) '" + using + "'");
+		// CommandList.getInstance().reportSuccess("Invoking '" +
+		// Thread.currentThread().getStackTrace()[1].getMethodName()
+		// + "' with input parameter(s) '" + using + "'");
 		return super.findElementByCssSelector(using);
 	}
 
@@ -1063,8 +1092,9 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	public RequiredElementType findElementByXPath(String using) {
-		CommandList.getInstance().reportSuccess("Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
-				+ "' with input parameter(s) '" + using + "'");
+		// CommandList.getInstance().reportSuccess("Invoking '" +
+		// Thread.currentThread().getStackTrace()[1].getMethodName()
+		// + "' with input parameter(s) '" + using + "'");
 		return super.findElementByXPath(using);
 	}
 
@@ -1076,8 +1106,9 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	public RequiredElementType findElementByAccessibilityId(String using) throws WebDriverException {
-		CommandList.getInstance().reportSuccess("Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
-				+ "' with input parameter(s) '" + using + "'");
+		// CommandList.getInstance().reportSuccess("Invoking '" +
+		// Thread.currentThread().getStackTrace()[1].getMethodName()
+		// + "' with input parameter(s) '" + using + "'");
 		return super.findElementByAccessibilityId(using);
 	}
 
@@ -1464,8 +1495,9 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	public Options manage() {
-		CommandList.getInstance()
-				.reportSuccess("Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName() + "'");
+		// CommandList.getInstance()
+		// .reportSuccess("Invoking '" +
+		// Thread.currentThread().getStackTrace()[1].getMethodName() + "'");
 		return super.manage();
 	}
 
