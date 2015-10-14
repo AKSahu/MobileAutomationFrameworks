@@ -15,7 +15,13 @@ import org.testng.annotations.BeforeSuite;
 
 import appium.util.ScreenshotCapture;
 
-
+/**
+ * This is the base of all the tests. All tests are required to extend this
+ * class.
+ * 
+ * @author aswinis
+ *
+ */
 public class TestBase {
 
 	private AppiumServer service = null;
