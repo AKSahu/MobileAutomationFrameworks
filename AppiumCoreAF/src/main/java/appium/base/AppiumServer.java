@@ -2,6 +2,9 @@ package appium.base;
 
 import java.io.File;
 
+import org.apache.log4j.Logger;
+
+import appium.util.ConfigUtil;
 import io.appium.java_client.service.local.AppiumDriverLocalService;
 import io.appium.java_client.service.local.AppiumServiceBuilder;
 
@@ -13,8 +16,9 @@ import io.appium.java_client.service.local.AppiumServiceBuilder;
  */
 public class AppiumServer {
 
-	String appiumInstallationDir = "C:/Program Files (x86)";
+	String appiumInstallationDir = ConfigUtil.getProperty("APPIUM_INSTALLATION_DIRECTORY");
 	AppiumDriverLocalService service = null;
+	private static Logger log = Logger.getLogger(AppiumServer.class);
 
 	public AppiumServer() {
 		File classPathRoot = new File(System.getProperty("user.dir"));
@@ -27,7 +31,8 @@ public class AppiumServer {
 				.withAppiumJS(
 						new File(appiumInstallationDir + File.separator + "Appium" + File.separator + "node_modules"
 								+ File.separator + "appium" + File.separator + "bin" + File.separator + "appium.js"))
-				.withLogFile(new File(new File(classPathRoot, File.separator + "log"), "androidlog.txt")));
+				.withLogFile(new File(new File(classPathRoot, File.separator + "log"), "androidLog.txt")));
+		log.info("Appium server is initialized.");
 	}
 
 	/**
@@ -35,6 +40,7 @@ public class AppiumServer {
 	 */
 	public void startAppiumServer() {
 		service.start();
+		log.info("Appium server has started successfully!");
 	}
 
 	/**
@@ -42,5 +48,6 @@ public class AppiumServer {
 	 */
 	public void stopAppiumServer() {
 		service.stop();
+		log.info("Appium server has stopped successfully!");
 	}
 }

@@ -7,7 +7,8 @@ import org.testng.Reporter;
 import org.testng.TestListenerAdapter;
 
 import appium.base.DriverManager;
-import appium.base.TestUtility;
+import appium.util.ScreenshotCapture;
+import appium.util.TestUtility;
 
 /**
  * This class has to be added to the testng task to listen for events.
@@ -60,7 +61,7 @@ public class ReportNGListener extends TestListenerAdapter {
 
 			if (status.equals("SKIPPED")) {
 				if (count == 0) {// take only one screenshot
-					TestUtility.takeScreenshot(new DriverManager().getDriver(), testName);
+					ScreenshotCapture.takeScreenshot(new DriverManager().getDriver(), testName);
 					count++;
 				}
 			}
