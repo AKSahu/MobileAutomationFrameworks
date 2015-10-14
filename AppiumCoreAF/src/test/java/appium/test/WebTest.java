@@ -10,7 +10,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import appium.base.TestUtility;
+import appium.util.ScreenshotCapture;
 
 public class WebTest {
 
@@ -34,7 +34,7 @@ public class WebTest {
 	public void doAfterMethod(ITestResult result) {
 
 		if (driver != null) {
-			TestUtility.takeScreenshot(driver, result.getMethod().getMethodName());
+			ScreenshotCapture.takeScreenshot(driver, result.getMethod().getMethodName());
 			driver.close();
 			driver.quit();
 		}

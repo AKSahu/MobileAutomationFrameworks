@@ -13,6 +13,8 @@ import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 
+import appium.util.ScreenshotCapture;
+
 
 public class TestBase {
 
@@ -72,7 +74,7 @@ public class TestBase {
 	public void doAfterMethod(ITestResult result) {
 
 		if (driver != null) {
-			TestUtility.takeScreenshot(driver, result.getMethod().getMethodName());
+			ScreenshotCapture.takeScreenshot(driver, result.getMethod().getMethodName());
 			driver.resetApp();
 		}
 	}
