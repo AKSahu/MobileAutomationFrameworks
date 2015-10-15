@@ -931,9 +931,9 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 			CommandList.getInstance().reportSuccess(
 					"Executing driver command '" + driverCommand + "' with input parameter(s): " + aCommand);
 		} else if (driverCommand.equals(DriverCommand.SEND_KEYS_TO_ELEMENT)) {
+			Object[] obj = (Object[]) parameters.get("value");
 			CommandList.getInstance().reportSuccess("Executing driver command '" + driverCommand
-					+ "' with input parameter(s): " + parameters.get("value").toString());
-			// TODO need to handle (Ljava.lang.CharSequence;@fba92d3)
+					+ "' with input parameter(s): [" + obj[0].toString() + "]");
 		} else if (driverCommand.equals(DriverCommand.FIND_ELEMENT) | driverCommand.equals(DriverCommand.FIND_ELEMENTS)
 				| driverCommand.equals(DriverCommand.CLEAR_ELEMENT) | driverCommand.equals(DriverCommand.CLICK_ELEMENT)
 				| driverCommand.equals(DriverCommand.IS_ELEMENT_DISPLAYED)
