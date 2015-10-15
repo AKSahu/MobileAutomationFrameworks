@@ -1,0 +1,144 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>MobileTestAutomation</groupId>
+	<artifactId>AppiumTestBase</artifactId>
+	<version>0.0.1</version>
+
+	<properties>
+		<jre.level>1.7</jre.level>
+		<jdk.level>1.7</jdk.level>
+	</properties>
+
+	<dependencies>
+		<!-- Dependencies for ReportNG report -->
+		<dependency>
+			<groupId>org.uncommons</groupId>
+			<artifactId>reportng</artifactId>
+			<version>1.1.2</version>
+			<scope>test</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>org.testng</groupId>
+					<artifactId>testng</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>com.google.inject</groupId>
+			<artifactId>guice</artifactId>
+			<version>3.0</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>velocity</groupId>
+			<artifactId>velocity</artifactId>
+			<version>1.4</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- Dependencies for the Core framework project -->
+		<dependency>
+			<groupId>MobileAutomation</groupId>
+			<artifactId>AppiumCoreAF</artifactId>
+			<version>0.0.1</version>
+			<scope>compile</scope>
+		</dependency>
+	</dependencies>
+
+	<repositories>
+		<repository>
+			<id>java-net</id>
+			<url>http://download.java.net/maven/2</url>
+		</repository>
+	</repositories>
+
+	<build>
+		<plugins>
+			<!-- Ant plugin for maven to create required directories -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>1.8</version>
+				<executions>
+					<execution>
+						<phase>clean</phase>
+						<configuration>
+							<target>
+
+								<echo message="Deleting old test output directories" />
+								<delete dir="${project.basedir}/log" />
+								<delete dir="${project.basedir}/screenshot" />
+
+								<echo message="Creating test output directories" />
+								<mkdir dir="${project.basedir}/log" />
+								<mkdir dir="${project.basedir}/screenshot" />
+								<!-- <mkdir dir="${project.build.directory}/app" />
+
+								<copy todir="${project.build.directory}/app">
+									<fileset dir="${project.basedir}/app">
+										<include name="**/*.apk" />
+									</fileset>
+								</copy> -->
+
+							</target>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+			<!-- Below plug-in is used to execute testng tests -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.18.1</version>
+				<configuration>
+					<!-- Use the below system property to use customized reports(test output 
+						as markup) -->
+					<systemProperties>
+						<property>
+							<name>org.uncommons.reportng.escape-output</name>
+							<value>false</value>
+						</property>
+						<property>
+							<name>org.uncommons.reportng.coverage-report</name>
+							<value>true</value>
+						</property>
+						<property>
+							<name>org.uncommons.reportng.frames</name>
+							<value>false</value>
+						</property>
+						<property>
+							<name>org.uncommons.reportng.title</name>
+							<value>WordPress App - Test Report</value>
+						</property>
+					</systemProperties>
+					<properties>
+						<!-- disabling default listeners is optional -->
+						<property>
+							<name>usedefaultlisteners</name>
+							<value>false</value>
+						</property>
+						<property>
+							<name>listener</name>
+							<value>
+								org.uncommons.reportng.HTMLReporter,
+								org.uncommons.reportng.JUnitXMLReporter,
+								appium.report.ReportNGCommandLogListener
+							</value>
+						</property>
+					</properties>
+					<forkMode>always</forkMode>
+					<!-- <workingDirectory>${project.basedir}/target/</workingDirectory> -->
+					<reportsDirectory>${project.basedir}/target/</reportsDirectory>
+					<suiteXmlFiles>
+						<!-- TestNG suite XML files -->
+						<suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile>
+					</suiteXmlFiles>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
