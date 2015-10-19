@@ -4,6 +4,7 @@ import java.io.File;
 import java.net.MalformedURLException;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.log4j.Logger;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -23,6 +24,8 @@ import appium.util.ScreenshotCapture;
  *
  */
 public class TestBase {
+	
+	private static Logger log = Logger.getLogger(TestBase.class);
 
 	private AppiumServer service = null;
 	protected AndroidDriver<WebElement> driver = null;
@@ -83,6 +86,7 @@ public class TestBase {
 			ScreenshotCapture.takeScreenshot(driver, result.getMethod().getMethodName());
 			driver.resetApp();
 		}
+		log.info("Executed "+result.getMethod().getMethodName()+" test successfully.");
 	}
 
 	@AfterSuite(alwaysRun = true)

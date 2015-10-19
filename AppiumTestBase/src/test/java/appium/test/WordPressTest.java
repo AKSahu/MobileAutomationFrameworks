@@ -17,7 +17,7 @@ import appium.page.SignInPage;
  */
 public class WordPressTest extends TestBase {
 
-	@Test(enabled = false)
+	@Test(enabled = true)
 	public void testSignInScreen() {
 
 		WebElement forgetPwd = driver.findElement(SignInPage.FORGET_PASSWORD_BUTTON);
@@ -48,7 +48,7 @@ public class WordPressTest extends TestBase {
 
 	}
 
-	@Test(enabled = false)
+	@Test(enabled = true)
 	public void testInvalidCredentials() {
 
 		driver.findElement(SignInPage.USERNAME_INPUT).sendKeys("aksahu");
