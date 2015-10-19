@@ -359,7 +359,8 @@ public class ReportNGListener extends TestListenerAdapter {
 					+ "	   <div id=\"columnChart\" style=\"float:left;background-color:white;\"></div>	" + "	</div>"
 					+ "</div><br><br>";
 			bw.write(highChartHtml);
-			bw.write("<iframe src=\"html/index.html\" width=\"100%\" height=\"100%\" frameBorder=\"0\"></iframe>");
+			bw.write(
+					"<iframe src=\"html/index.html\" width=\"100%\" height=\"100%\" frameBorder=\"0\" id=\"myiframe\" onload='window.parent.parent.scrollTo(0,190);'></iframe>");
 			bw.write("</center>");
 			bw.write("</body></html>");
 			bw.close();
