@@ -2,10 +2,6 @@ package appium.report;
 
 import java.util.LinkedList;
 
-import org.apache.log4j.Logger;
-
-import appium.base.AndroidDriver;
-
 /**
  * This class contains the list of commands that were and are logged by
  * reportXXX() methods
@@ -13,8 +9,6 @@ import appium.base.AndroidDriver;
  * @author A. K. Sahu
  */
 public class CommandList {
-
-	private static Logger log = Logger.getLogger(AndroidDriver.class);
 
 	/**
 	 * Queue object for collecting commands
@@ -44,12 +38,10 @@ public class CommandList {
 	 */
 	public void reportSuccess(String s) {
 		successList.add(s);
-		log.info(s);
 	}
 
 	public void reportFailure(String s) {
 		failureList.add(s);
-		log.error(s);
 	}
 
 	public void clearCommandLog() {

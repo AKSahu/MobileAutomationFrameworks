@@ -7,6 +7,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.logging.Level;
 
+import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.OutputType;
@@ -60,6 +61,8 @@ import io.appium.java_client.service.local.AppiumServiceBuilder;
 public class AndroidDriver<RequiredElementType extends WebElement>
 		extends io.appium.java_client.android.AndroidDriver<RequiredElementType> {
 
+	private static Logger log = Logger.getLogger(AndroidDriver.class);
+
 	/**
 	 * 
 	 * @param remoteAddress
@@ -103,8 +106,11 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	public RequiredElementType scrollTo(String text) {
-		CommandList.getInstance().reportSuccess("Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
-				+ "' with input parameter(s) '" + text + "'");
+		
+		String logCommand = "Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
+				+ "' with input parameter(s) '" + text + "'";
+		CommandList.getInstance().reportSuccess(logCommand);
+		log.info(logCommand);
 		return super.scrollTo(text);
 	}
 
@@ -116,8 +122,11 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	public RequiredElementType scrollToExact(String text) {
-		CommandList.getInstance().reportSuccess("Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
-				+ "' with input parameter(s) '" + text + "'");
+		
+		String logCommand = "Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
+				+ "' with input parameter(s) '" + text + "'";
+		CommandList.getInstance().reportSuccess(logCommand);
+		log.info(logCommand);
 		return super.scrollToExact(text);
 	}
 
@@ -128,8 +137,11 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	public void pressKeyCode(int key) {
-		CommandList.getInstance().reportSuccess("Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
-				+ "' with input parameter(s) '" + key + "'");
+		
+		String logCommand = "Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
+				+ "' with input parameter(s) '" + key + "'";
+		CommandList.getInstance().reportSuccess(logCommand);
+		log.info(logCommand);
 		super.pressKeyCode(key);
 	}
 
@@ -141,8 +153,11 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	public void pressKeyCode(int key, Integer metastate) {
-		CommandList.getInstance().reportSuccess("Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
-				+ "' with input parameter(s) '" + key + "' and '" + metastate + "'");
+		
+		String logCommand = "Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
+				+ "' with input parameter(s) '" + key + "' and '" + metastate + "'";
+		CommandList.getInstance().reportSuccess(logCommand);
+		log.info(logCommand);
 		super.pressKeyCode(key, metastate);
 	}
 
@@ -153,8 +168,11 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	public void longPressKeyCode(int key) {
-		CommandList.getInstance().reportSuccess("Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
-				+ "' with input parameter(s) '" + key + "'");
+		
+		String logCommand = "Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
+				+ "' with input parameter(s) '" + key + "'";
+		CommandList.getInstance().reportSuccess(logCommand);
+		log.info(logCommand);
 		super.longPressKeyCode(key);
 	}
 
@@ -166,8 +184,11 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	public void longPressKeyCode(int key, Integer metastate) {
-		CommandList.getInstance().reportSuccess("Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
-				+ "' with input parameter(s) '" + key + "' and '" + metastate + "'");
+		
+		String logCommand = "Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
+				+ "' with input parameter(s) '" + key + "' and '" + metastate + "'";
+		CommandList.getInstance().reportSuccess(logCommand);
+		log.info(logCommand);
 		super.longPressKeyCode(key, metastate);
 	}
 
@@ -178,8 +199,10 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	public NetworkConnectionSetting getNetworkConnection() {
-		CommandList.getInstance()
-				.reportSuccess("Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName() + "'");
+		
+		String logCommand = "Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName() + "'";
+		CommandList.getInstance().reportSuccess(logCommand);
+		log.info(logCommand);
 		return super.getNetworkConnection();
 	}
 
@@ -191,8 +214,11 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	public void setNetworkConnection(NetworkConnectionSetting connection) {
-		CommandList.getInstance().reportSuccess("Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
-				+ "' with input parameter(s) '" + connection + "'");
+		
+		String logCommand = "Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
+				+ "' with input parameter(s) '" + connection + "'";
+		CommandList.getInstance().reportSuccess(logCommand);
+		log.info(logCommand);
 		super.setNetworkConnection(connection);
 	}
 
@@ -205,8 +231,11 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	public void pushFile(String remotePath, byte[] base64Data) {
-		CommandList.getInstance().reportSuccess("Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
-				+ "' with input parameter(s) '" + remotePath + "' and '" + base64Data + "'");
+		
+		String logCommand = "Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
+				+ "' with input parameter(s) '" + remotePath + "' and '" + base64Data + "'";
+		CommandList.getInstance().reportSuccess(logCommand);
+		log.info(logCommand);
 		super.pushFile(remotePath, base64Data);
 	}
 
@@ -219,12 +248,6 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	@Override
 	public void startActivity(String appPackage, String appActivity, String appWaitPackage, String appWaitActivity)
 			throws IllegalArgumentException {
-		// CommandList.getInstance()
-		// .reportSuccess("Invoking '" +
-		// Thread.currentThread().getStackTrace()[1].getMethodName()
-		// + "' with input parameter(s) '" + appPackage + "' , '" + appActivity
-		// + "' , '" + appWaitPackage
-		// + "' and '" + appWaitActivity + "'");
 		super.startActivity(appPackage, appActivity, appWaitPackage, appWaitActivity);
 	}
 
@@ -236,10 +259,6 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	public void startActivity(String appPackage, String appActivity) throws IllegalArgumentException {
-		// CommandList.getInstance().reportSuccess("Invoking '" +
-		// Thread.currentThread().getStackTrace()[1].getMethodName()
-		// + "' with input parameter(s) '" + appPackage + "' and '" +
-		// appActivity + "'");
 		super.startActivity(appPackage, appActivity);
 	}
 
@@ -252,8 +271,11 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	public void endTestCoverage(String intent, String path) {
-		CommandList.getInstance().reportSuccess("Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
-				+ "' with input parameter(s) '" + intent + "' and '" + path + "'");
+		
+		String logCommand = "Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
+				+ "' with input parameter(s) '" + intent + "' and '" + path + "'";
+		CommandList.getInstance().reportSuccess(logCommand);
+		log.info(logCommand);
 		super.endTestCoverage(intent, path);
 	}
 
@@ -264,8 +286,10 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	public String currentActivity() {
-		CommandList.getInstance()
-				.reportSuccess("Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName());
+		
+		String logCommand = "Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName();
+		CommandList.getInstance().reportSuccess(logCommand);
+		log.info(logCommand);
 		return super.currentActivity();
 	}
 
@@ -276,8 +300,10 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	public void openNotifications() {
-		CommandList.getInstance()
-				.reportSuccess("Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName() + "'");
+		
+		String logCommand = "Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName() + "'";
+		CommandList.getInstance().reportSuccess(logCommand);
+		log.info(logCommand);
 		super.openNotifications();
 	}
 
@@ -288,8 +314,10 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	public boolean isLocked() {
-		CommandList.getInstance()
-				.reportSuccess("Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName() + "'");
+		
+		String logCommand = "Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName() + "'";
+		CommandList.getInstance().reportSuccess(logCommand);
+		log.info(logCommand);
 		return super.isLocked();
 	}
 
@@ -300,8 +328,10 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	public void toggleLocationServices() {
-		CommandList.getInstance()
-				.reportSuccess("Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName() + "'");
+		
+		String logCommand = "Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName() + "'";
+		CommandList.getInstance().reportSuccess(logCommand);
+		log.info(logCommand);
 		super.toggleLocationServices();
 	}
 
@@ -314,8 +344,11 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	public void ignoreUnimportantViews(Boolean compress) {
-		CommandList.getInstance().reportSuccess("Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
-				+ "' with input parameter(s) '" + compress + "'");
+		
+		String logCommand = "Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
+				+ "' with input parameter(s) '" + compress + "'";
+		CommandList.getInstance().reportSuccess(logCommand);
+		log.info(logCommand);
 		super.ignoreUnimportantViews(compress);
 	}
 
@@ -327,8 +360,11 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	public RequiredElementType findElementByAndroidUIAutomator(String using) throws WebDriverException {
-		CommandList.getInstance().reportSuccess("Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
-				+ "' with input parameter(s) '" + using + "'");
+		
+		String logCommand = "Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
+				+ "' with input parameter(s) '" + using + "'";
+		CommandList.getInstance().reportSuccess(logCommand);
+		log.info(logCommand);
 		return super.findElementByAndroidUIAutomator(using);
 	}
 
@@ -340,8 +376,11 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	public List<RequiredElementType> findElementsByAndroidUIAutomator(String using) throws WebDriverException {
-		CommandList.getInstance().reportSuccess("Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
-				+ "' with input parameter(s) '" + using + "'");
+		
+		String logCommand = "Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
+				+ "' with input parameter(s) '" + using + "'";
+		CommandList.getInstance().reportSuccess(logCommand);
+		log.info(logCommand);
 		return super.findElementsByAndroidUIAutomator(using);
 	}
 
@@ -354,9 +393,6 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	public List findElements(By by) {
-		// CommandList.getInstance().reportSuccess("Invoking '" +
-		// Thread.currentThread().getStackTrace()[1].getMethodName()
-		// + "' with input parameter(s) '" + by + "'");
 		return super.findElements(by);
 	}
 
@@ -369,9 +405,6 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	public List findElementsById(String id) {
-		// CommandList.getInstance().reportSuccess("Invoking '" +
-		// Thread.currentThread().getStackTrace()[1].getMethodName()
-		// + "' with input parameter(s) '" + id + "'");
 		return super.findElementsById(id);
 	}
 
@@ -384,9 +417,6 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	public List findElementsByLinkText(String using) {
-		// CommandList.getInstance().reportSuccess("Invoking '" +
-		// Thread.currentThread().getStackTrace()[1].getMethodName()
-		// + "' with input parameter(s) '" + using + "'");
 		return super.findElementsByLinkText(using);
 	}
 
@@ -400,9 +430,6 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	public List findElementsByPartialLinkText(String using) {
-		// CommandList.getInstance().reportSuccess("Invoking '" +
-		// Thread.currentThread().getStackTrace()[1].getMethodName()
-		// + "' with input parameter(s) '" + using + "'");
 		return super.findElementsByPartialLinkText(using);
 	}
 
@@ -415,9 +442,6 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	public List findElementsByTagName(String using) {
-		// CommandList.getInstance().reportSuccess("Invoking '" +
-		// Thread.currentThread().getStackTrace()[1].getMethodName()
-		// + "' with input parameter(s) '" + using + "'");
 		return super.findElementsByTagName(using);
 	}
 
@@ -430,9 +454,6 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	public List findElementsByName(String using) {
-		// CommandList.getInstance().reportSuccess("Invoking '" +
-		// Thread.currentThread().getStackTrace()[1].getMethodName()
-		// + "' with input parameter(s) '" + using + "'");
 		return super.findElementsByName(using);
 	}
 
@@ -446,9 +467,6 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	public List findElementsByClassName(String using) {
-		// CommandList.getInstance().reportSuccess("Invoking '" +
-		// Thread.currentThread().getStackTrace()[1].getMethodName()
-		// + "' with input parameter(s) '" + using + "'");
 		return super.findElementsByClassName(using);
 	}
 
@@ -462,9 +480,6 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	public List findElementsByCssSelector(String using) {
-		// CommandList.getInstance().reportSuccess("Invoking '" +
-		// Thread.currentThread().getStackTrace()[1].getMethodName()
-		// + "' with input parameter(s) '" + using + "'");
 		return super.findElementsByCssSelector(using);
 	}
 
@@ -477,9 +492,6 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	public List findElementsByXPath(String using) {
-		// CommandList.getInstance().reportSuccess("Invoking '" +
-		// Thread.currentThread().getStackTrace()[1].getMethodName()
-		// + "' with input parameter(s) '" + using + "'");
 		return super.findElementsByXPath(using);
 	}
 
@@ -493,9 +505,6 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	public List findElementsByAccessibilityId(String using) {
-		// CommandList.getInstance().reportSuccess("Invoking '" +
-		// Thread.currentThread().getStackTrace()[1].getMethodName()
-		// + "' with input parameter(s) '" + using + "'");
 		return super.findElementsByAccessibilityId(using);
 	}
 
@@ -506,7 +515,10 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	protected Response execute(String command) {
-		CommandList.getInstance().reportSuccess("Executing driver command: '" + command + "'");
+		
+		String logCommand = "Executing driver command: '" + command + "'";
+		CommandList.getInstance().reportSuccess(logCommand);
+		log.info(logCommand);
 		return super.execute(command);
 	}
 
@@ -517,8 +529,10 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	public ExecuteMethod getExecuteMethod() {
-		CommandList.getInstance()
-				.reportSuccess("Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName() + "'");
+		
+		String logCommand = "Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName() + "'";
+		CommandList.getInstance().reportSuccess(logCommand);
+		log.info(logCommand);
 		return super.getExecuteMethod();
 	}
 
@@ -529,8 +543,10 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	public void resetApp() {
-		CommandList.getInstance()
-				.reportSuccess("Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName() + "'");
+		
+		String logCommand = "Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName() + "'";
+		CommandList.getInstance().reportSuccess(logCommand);
+		log.info(logCommand);
 		super.resetApp();
 	}
 
@@ -541,8 +557,11 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	public boolean isAppInstalled(String bundleId) {
-		CommandList.getInstance().reportSuccess("Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
-				+ "' with input parameter(s) '" + bundleId + "'");
+		
+		String logCommand = "Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
+				+ "' with input parameter(s) '" + bundleId + "'";
+		CommandList.getInstance().reportSuccess(logCommand);
+		log.info(logCommand);
 		return super.isAppInstalled(bundleId);
 	}
 
@@ -553,8 +572,11 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	public void installApp(String appPath) {
-		CommandList.getInstance().reportSuccess("Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
-				+ "' with input parameter(s) '" + appPath + "'");
+		
+		String logCommand = "Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
+				+ "' with input parameter(s) '" + appPath + "'";
+		CommandList.getInstance().reportSuccess(logCommand);
+		log.info(logCommand);
 		super.installApp(appPath);
 	}
 
@@ -565,8 +587,11 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	public void removeApp(String bundleId) {
-		CommandList.getInstance().reportSuccess("Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
-				+ "' with input parameter(s) '" + bundleId + "'");
+		
+		String logCommand = "Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
+				+ "' with input parameter(s) '" + bundleId + "'";
+		CommandList.getInstance().reportSuccess(logCommand);
+		log.info(logCommand);
 		super.removeApp(bundleId);
 	}
 
@@ -577,8 +602,10 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	public void launchApp() {
-		CommandList.getInstance()
-				.reportSuccess("Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName() + "'");
+		
+		String logCommand = "Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName() + "'";
+		CommandList.getInstance().reportSuccess(logCommand);
+		log.info(logCommand);
 		super.launchApp();
 	}
 
@@ -589,8 +616,10 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	public void closeApp() {
-		CommandList.getInstance()
-				.reportSuccess("Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName() + "'");
+		
+		String logCommand = "Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName() + "'";
+		CommandList.getInstance().reportSuccess(logCommand);
+		log.info(logCommand);
 		super.closeApp();
 	}
 
@@ -601,8 +630,11 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	public void runAppInBackground(int seconds) {
-		CommandList.getInstance().reportSuccess("Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
-				+ "' with input parameter(s) '" + seconds + "'");
+		
+		String logCommand = "Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
+				+ "' with input parameter(s) '" + seconds + "'";
+		CommandList.getInstance().reportSuccess(logCommand);
+		log.info(logCommand);
 		super.runAppInBackground(seconds);
 	}
 
@@ -613,8 +645,10 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	public void hideKeyboard() {
-		CommandList.getInstance()
-				.reportSuccess("Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName() + "'");
+		
+		String logCommand = "Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName() + "'";
+		CommandList.getInstance().reportSuccess(logCommand);
+		log.info(logCommand);
 		super.hideKeyboard();
 	}
 
@@ -625,8 +659,11 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	public byte[] pullFile(String remotePath) {
-		CommandList.getInstance().reportSuccess("Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
-				+ "' with input parameter(s) '" + remotePath + "'");
+		
+		String logCommand = "Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
+				+ "' with input parameter(s) '" + remotePath + "'";
+		CommandList.getInstance().reportSuccess(logCommand);
+		log.info(logCommand);
 		return super.pullFile(remotePath);
 	}
 
@@ -637,8 +674,11 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	public byte[] pullFolder(String remotePath) {
-		CommandList.getInstance().reportSuccess("Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
-				+ "' with input parameter(s) '" + remotePath + "'");
+		
+		String logCommand = "Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
+				+ "' with input parameter(s) '" + remotePath + "'";
+		CommandList.getInstance().reportSuccess(logCommand);
+		log.info(logCommand);
 		return super.pullFolder(remotePath);
 	}
 
@@ -650,8 +690,11 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	public TouchAction performTouchAction(TouchAction touchAction) {
-		CommandList.getInstance().reportSuccess("Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
-				+ "' with input parameter(s) '" + touchAction + "'");
+		
+		String logCommand = "Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
+				+ "' with input parameter(s) '" + touchAction + "'";
+		CommandList.getInstance().reportSuccess(logCommand);
+		log.info(logCommand);
 		return super.performTouchAction(touchAction);
 	}
 
@@ -664,8 +707,11 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	public void performMultiTouchAction(MultiTouchAction multiAction) {
-		CommandList.getInstance().reportSuccess("Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
-				+ "' with input parameter(s) '" + multiAction + "'");
+		
+		String logCommand = "Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
+				+ "' with input parameter(s) '" + multiAction + "'";
+		CommandList.getInstance().reportSuccess(logCommand);
+		log.info(logCommand);
 		super.performMultiTouchAction(multiAction);
 	}
 
@@ -677,8 +723,11 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	public void tap(int fingers, WebElement element, int duration) {
-		CommandList.getInstance().reportSuccess("Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
-				+ "' with input parameter(s) '" + fingers + "' , '" + element + "' and '" + duration + "'");
+		
+		String logCommand = "Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
+				+ "' with input parameter(s) '" + fingers + "' , '" + element + "' and '" + duration + "'";
+		CommandList.getInstance().reportSuccess(logCommand);
+		log.info(logCommand);
 		super.tap(fingers, element, duration);
 	}
 
@@ -689,8 +738,11 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	public void tap(int fingers, int x, int y, int duration) {
-		CommandList.getInstance().reportSuccess("Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
-				+ "' with input parameter(s) '" + fingers + "' , '" + x + "' , '" + y + "' and '" + duration + "'");
+		
+		String logCommand = "Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
+				+ "' with input parameter(s) '" + fingers + "' , '" + x + "' , '" + y + "' and '" + duration + "'";
+		CommandList.getInstance().reportSuccess(logCommand);
+		log.info(logCommand);
 		super.tap(fingers, x, y, duration);
 	}
 
@@ -701,10 +753,12 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	public void swipe(int startx, int starty, int endx, int endy, int duration) {
-		CommandList.getInstance()
-				.reportSuccess("Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
-						+ "' with input parameter(s) '" + startx + "', '" + starty + "', '" + endx + "', '" + endy
-						+ "', '" + duration + "'");
+		
+		String logCommand = "Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
+				+ "' with input parameter(s) '" + startx + "', '" + starty + "', '" + endx + "', '" + endy + "', '"
+				+ duration + "'";
+		CommandList.getInstance().reportSuccess(logCommand);
+		log.info(logCommand);
 		super.swipe(startx, starty, endx, endy, duration);
 	}
 
@@ -716,8 +770,11 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	public void pinch(WebElement el) {
-		CommandList.getInstance().reportSuccess("Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
-				+ "' with input parameter(s) '" + el + "'");
+		
+		String logCommand = "Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
+				+ "' with input parameter(s) '" + el + "'";
+		CommandList.getInstance().reportSuccess(logCommand);
+		log.info(logCommand);
 		super.pinch(el);
 	}
 
@@ -728,8 +785,11 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	public void pinch(int x, int y) {
-		CommandList.getInstance().reportSuccess("Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
-				+ "' with input parameter(s) '" + x + "' and '" + y + "'");
+		
+		String logCommand = "Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
+				+ "' with input parameter(s) '" + x + "' and '" + y + "'";
+		CommandList.getInstance().reportSuccess(logCommand);
+		log.info(logCommand);
 		super.pinch(x, y);
 	}
 
@@ -741,8 +801,11 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	public void zoom(WebElement el) {
-		CommandList.getInstance().reportSuccess("Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
-				+ "' with input parameter(s) '" + el + "'");
+		
+		String logCommand = "Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
+				+ "' with input parameter(s) '" + el + "'";
+		CommandList.getInstance().reportSuccess(logCommand);
+		log.info(logCommand);
 		super.zoom(el);
 	}
 
@@ -753,8 +816,11 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	public void zoom(int x, int y) {
-		CommandList.getInstance().reportSuccess("Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
-				+ "' with input parameter(s) '" + x + "' and '" + y + "'");
+		
+		String logCommand = "Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
+				+ "' with input parameter(s) '" + x + "' and '" + y + "'";
+		CommandList.getInstance().reportSuccess(logCommand);
+		log.info(logCommand);
 		super.zoom(x, y);
 	}
 
@@ -765,8 +831,10 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	public JsonObject getSettings() {
-		CommandList.getInstance()
-				.reportSuccess("Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName() + "'");
+		
+		String logCommand = "Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName() + "'";
+		CommandList.getInstance().reportSuccess(logCommand);
+		log.info(logCommand);
 		return super.getSettings();
 	}
 
@@ -778,8 +846,11 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	protected void setSetting(AppiumSetting setting, Object value) {
-		CommandList.getInstance().reportSuccess("Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
-				+ "' with input parameter(s) '" + setting + "' and '" + value + "'");
+		
+		String logCommand = "Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
+				+ "' with input parameter(s) '" + setting + "' and '" + value + "'";
+		CommandList.getInstance().reportSuccess(logCommand);
+		log.info(logCommand);
 		super.setSetting(setting, value);
 	}
 
@@ -790,8 +861,11 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	public void lockScreen(int seconds) {
-		CommandList.getInstance().reportSuccess("Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
-				+ "' with input parameter(s) '" + seconds + "'");
+		
+		String logCommand = "Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
+				+ "' with input parameter(s) '" + seconds + "'";
+		CommandList.getInstance().reportSuccess(logCommand);
+		log.info(logCommand);
 		super.lockScreen(seconds);
 	}
 
@@ -802,8 +876,11 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	public WebDriver context(String name) {
-		CommandList.getInstance().reportSuccess("Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
-				+ "' with input parameter(s) '" + name + "'");
+		
+		String logCommand = "Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
+				+ "' with input parameter(s) '" + name + "'";
+		CommandList.getInstance().reportSuccess(logCommand);
+		log.info(logCommand);
 		return super.context(name);
 	}
 
@@ -814,8 +891,10 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	public Set<String> getContextHandles() {
-		CommandList.getInstance()
-				.reportSuccess("Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName() + "'");
+		
+		String logCommand = "Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName() + "'";
+		CommandList.getInstance().reportSuccess(logCommand);
+		log.info(logCommand);
 		return super.getContextHandles();
 	}
 
@@ -826,8 +905,10 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	public String getContext() {
-		CommandList.getInstance()
-				.reportSuccess("Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName() + "'");
+		
+		String logCommand = "Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName() + "'";
+		CommandList.getInstance().reportSuccess(logCommand);
+		log.info(logCommand);
 		return super.getContext();
 	}
 
@@ -839,8 +920,11 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	public void rotate(ScreenOrientation orientation) {
-		CommandList.getInstance().reportSuccess("Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
-				+ "' with input parameter(s) '" + orientation + "'");
+		
+		String logCommand = "Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
+				+ "' with input parameter(s) '" + orientation + "'";
+		CommandList.getInstance().reportSuccess(logCommand);
+		log.info(logCommand);
 		super.rotate(orientation);
 	}
 
@@ -851,8 +935,10 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	public ScreenOrientation getOrientation() {
-		CommandList.getInstance()
-				.reportSuccess("Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName() + "'");
+		
+		String logCommand = "Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName() + "'";
+		CommandList.getInstance().reportSuccess(logCommand);
+		log.info(logCommand);
 		return super.getOrientation();
 	}
 
@@ -863,8 +949,10 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	public Location location() {
-		CommandList.getInstance()
-				.reportSuccess("Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName() + "'");
+		
+		String logCommand = "Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName() + "'";
+		CommandList.getInstance().reportSuccess(logCommand);
+		log.info(logCommand);
 		return super.location();
 	}
 
@@ -877,8 +965,11 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	public void setLocation(Location location) {
-		CommandList.getInstance().reportSuccess("Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
-				+ "' with input parameter(s) '" + location + "'");
+		
+		String logCommand = "Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
+				+ "' with input parameter(s) '" + location + "'";
+		CommandList.getInstance().reportSuccess(logCommand);
+		log.info(logCommand);
 		super.setLocation(location);
 	}
 
@@ -889,8 +980,10 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	public String getAppStrings() {
-		CommandList.getInstance()
-				.reportSuccess("Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName() + "'");
+		
+		String logCommand = "Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName() + "'";
+		CommandList.getInstance().reportSuccess(logCommand);
+		log.info(logCommand);
 		return super.getAppStrings();
 	}
 
@@ -901,8 +994,11 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	public String getAppStrings(String language) {
-		CommandList.getInstance().reportSuccess("Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
-				+ "' with input parameter(s) '" + language + "'");
+		
+		String logCommand = "Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
+				+ "' with input parameter(s) '" + language + "'";
+		CommandList.getInstance().reportSuccess(logCommand);
+		log.info(logCommand);
 		return super.getAppStrings(language);
 	}
 
@@ -913,8 +1009,10 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	public URL getRemoteAddress() {
-		CommandList.getInstance()
-				.reportSuccess("Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName() + "'");
+		
+		String logCommand = "Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName() + "'";
+		CommandList.getInstance().reportSuccess(logCommand);
+		log.info(logCommand);
 		return super.getRemoteAddress();
 	}
 
@@ -926,14 +1024,18 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	public Response execute(String driverCommand, Map<String, ?> parameters) {
+
+		String logCommand = "";
+
 		if (parameters != null && parameters.containsKey("using") && parameters.containsKey("value")) {
 			String aCommand = String.format("{Using=%s, value=%s}", parameters.get("using"), parameters.get("value"));
-			CommandList.getInstance().reportSuccess(
-					"Executing driver command '" + driverCommand + "' with input parameter(s): " + aCommand);
+			logCommand = "Executing driver command '" + driverCommand + "' with input parameter(s): " + aCommand;
+			
 		} else if (driverCommand.equals(DriverCommand.SEND_KEYS_TO_ELEMENT)) {
 			Object[] obj = (Object[]) parameters.get("value");
-			CommandList.getInstance().reportSuccess("Executing driver command '" + driverCommand
-					+ "' with input parameter(s): [" + obj[0].toString() + "]");
+			logCommand = "Executing driver command '" + driverCommand + "' with input parameter(s): ["
+					+ obj[0].toString() + "]";
+			
 		} else if (driverCommand.equals(DriverCommand.FIND_ELEMENT) | driverCommand.equals(DriverCommand.FIND_ELEMENTS)
 				| driverCommand.equals(DriverCommand.CLEAR_ELEMENT) | driverCommand.equals(DriverCommand.CLICK_ELEMENT)
 				| driverCommand.equals(DriverCommand.IS_ELEMENT_DISPLAYED)
@@ -950,17 +1052,19 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 				| driverCommand.equals(DriverCommand.MOUSE_UP) | driverCommand.equals(DriverCommand.MOVE_TO)
 				| driverCommand.equals(DriverCommand.FIND_CHILD_ELEMENTS)
 				| driverCommand.equals(DriverCommand.FIND_CHILD_ELEMENT)) {
-			CommandList.getInstance()
-					.reportSuccess("Executing driver command '" + driverCommand + "' for the above found element");
+			logCommand = "Executing driver command '" + driverCommand + "' for the above found element";
+			
 		} else {
 			if (parameters != null) {
 				@SuppressWarnings({ "rawtypes", "unchecked" })
 				List mapValues = new ArrayList(parameters.values());
-				CommandList.getInstance().reportSuccess(
-						"Executing driver command '" + driverCommand + "' with input parameter(s): " + mapValues);
+				logCommand = "Executing driver command '" + driverCommand + "' with input parameter(s): " + mapValues;
+				
 			}
 		}
 
+		CommandList.getInstance().reportSuccess(logCommand);
+		log.info(logCommand);
 		return super.execute(driverCommand, parameters);
 	}
 
@@ -973,9 +1077,6 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	public RequiredElementType findElement(By by) {
-		// CommandList.getInstance().reportSuccess("Invoking '" +
-		// Thread.currentThread().getStackTrace()[1].getMethodName()
-		// + "' with input parameter(s) '" + by + "'");
 		return super.findElement(by);
 	}
 
@@ -988,9 +1089,6 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	public RequiredElementType findElementById(String id) {
-		// CommandList.getInstance().reportSuccess("Invoking '" +
-		// Thread.currentThread().getStackTrace()[1].getMethodName()
-		// + "' with input parameter(s) '" + id + "'");
 		return super.findElementById(id);
 	}
 
@@ -1003,9 +1101,6 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	public RequiredElementType findElementByLinkText(String using) throws WebDriverException {
-		// CommandList.getInstance().reportSuccess("Invoking '" +
-		// Thread.currentThread().getStackTrace()[1].getMethodName()
-		// + "' with input parameter(s) '" + using + "'");
 		return super.findElementByLinkText(using);
 	}
 
@@ -1017,9 +1112,6 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	public RequiredElementType findElementByPartialLinkText(String using) throws WebDriverException {
-		// CommandList.getInstance().reportSuccess("Invoking '" +
-		// Thread.currentThread().getStackTrace()[1].getMethodName()
-		// + "' with input parameter(s) '" + using + "'");
 		return super.findElementByPartialLinkText(using);
 	}
 
@@ -1032,9 +1124,6 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	public RequiredElementType findElementByTagName(String using) {
-		// CommandList.getInstance().reportSuccess("Invoking '" +
-		// Thread.currentThread().getStackTrace()[1].getMethodName()
-		// + "' with input parameter(s) '" + using + "'");
 		return super.findElementByTagName(using);
 	}
 
@@ -1047,9 +1136,6 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	public RequiredElementType findElementByName(String using) {
-		// CommandList.getInstance().reportSuccess("Invoking '" +
-		// Thread.currentThread().getStackTrace()[1].getMethodName()
-		// + "' with input parameter(s) '" + using + "'");
 		return super.findElementByName(using);
 	}
 
@@ -1062,9 +1148,6 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	public RequiredElementType findElementByClassName(String using) {
-		// CommandList.getInstance().reportSuccess("Invoking '" +
-		// Thread.currentThread().getStackTrace()[1].getMethodName()
-		// + "' with input parameter(s) '" + using + "'");
 		return super.findElementByClassName(using);
 	}
 
@@ -1077,9 +1160,6 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	public RequiredElementType findElementByCssSelector(String using) throws WebDriverException {
-		// CommandList.getInstance().reportSuccess("Invoking '" +
-		// Thread.currentThread().getStackTrace()[1].getMethodName()
-		// + "' with input parameter(s) '" + using + "'");
 		return super.findElementByCssSelector(using);
 	}
 
@@ -1092,9 +1172,6 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	public RequiredElementType findElementByXPath(String using) {
-		// CommandList.getInstance().reportSuccess("Invoking '" +
-		// Thread.currentThread().getStackTrace()[1].getMethodName()
-		// + "' with input parameter(s) '" + using + "'");
 		return super.findElementByXPath(using);
 	}
 
@@ -1106,9 +1183,6 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	public RequiredElementType findElementByAccessibilityId(String using) throws WebDriverException {
-		// CommandList.getInstance().reportSuccess("Invoking '" +
-		// Thread.currentThread().getStackTrace()[1].getMethodName()
-		// + "' with input parameter(s) '" + using + "'");
 		return super.findElementByAccessibilityId(using);
 	}
 
@@ -1120,8 +1194,6 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	@Deprecated
 	@Override
 	public Mouse getMouse() {
-		// CommandList.getInstance().reportSuccess("Invoking '" +
-		// Thread.currentThread().getStackTrace()[1].getMethodName() + "'");
 		return super.getMouse();
 	}
 
@@ -1134,9 +1206,6 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	public void setFileDetector(FileDetector detector) {
-		// CommandList.getInstance().reportSuccess("Invoking '" +
-		// Thread.currentThread().getStackTrace()[1].getMethodName()
-		// + "' with input parameter(s) '" + detector + "'");
 		super.setFileDetector(detector);
 	}
 
@@ -1147,8 +1216,6 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	public SessionId getSessionId() {
-		// CommandList.getInstance().reportSuccess("Invoking '" +
-		// Thread.currentThread().getStackTrace()[1].getMethodName() + "'");
 		return super.getSessionId();
 	}
 
@@ -1160,9 +1227,6 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	protected void setSessionId(String opaqueKey) {
-		// CommandList.getInstance().reportSuccess("Invoking '" +
-		// Thread.currentThread().getStackTrace()[1].getMethodName()
-		// + "' with input parameter(s) '" + opaqueKey + "'");
 		super.setSessionId(opaqueKey);
 	}
 
@@ -1174,8 +1238,11 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	protected void startSession(Capabilities desiredCapabilities) {
-		CommandList.getInstance().reportSuccess("Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
-				+ "' with input parameter(s) '" + desiredCapabilities + "'");
+		
+		String logCommand = "Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
+				+ "' with input parameter(s) '" + desiredCapabilities + "'";
+		CommandList.getInstance().reportSuccess(logCommand);
+		log.info(logCommand);
 		super.startSession(desiredCapabilities);
 	}
 
@@ -1187,8 +1254,11 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	protected void startSession(Capabilities desiredCapabilities, Capabilities requiredCapabilities) {
-		CommandList.getInstance().reportSuccess("Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
-				+ "' with input parameter(s) '" + desiredCapabilities + "' and '" + requiredCapabilities + "'");
+		
+		String logCommand = "Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
+				+ "' with input parameter(s) '" + desiredCapabilities + "' and '" + requiredCapabilities + "'";
+		CommandList.getInstance().reportSuccess(logCommand);
+		log.info(logCommand);
 		super.startSession(desiredCapabilities, requiredCapabilities);
 	}
 
@@ -1199,8 +1269,10 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	protected void startClient() {
-		CommandList.getInstance()
-				.reportSuccess("Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName() + "'");
+		
+		String logCommand = "Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName() + "'";
+		CommandList.getInstance().reportSuccess(logCommand);
+		log.info(logCommand);
 		super.startClient();
 	}
 
@@ -1211,8 +1283,10 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	protected void stopClient() {
-		CommandList.getInstance()
-				.reportSuccess("Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName() + "'");
+		
+		String logCommand = "Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName() + "'";
+		CommandList.getInstance().reportSuccess(logCommand);
+		log.info(logCommand);
 		super.stopClient();
 	}
 
@@ -1223,8 +1297,10 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	public ErrorHandler getErrorHandler() {
-		CommandList.getInstance()
-				.reportSuccess("Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName() + "'");
+		
+		String logCommand = "Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName() + "'";
+		CommandList.getInstance().reportSuccess(logCommand);
+		log.info(logCommand);
 		return super.getErrorHandler();
 	}
 
@@ -1237,8 +1313,11 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	public void setErrorHandler(ErrorHandler handler) {
-		CommandList.getInstance().reportSuccess("Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
-				+ "' with input parameter(s) '" + handler + "'");
+		
+		String logCommand = "Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
+				+ "' with input parameter(s) '" + handler + "'";
+		CommandList.getInstance().reportSuccess(logCommand);
+		log.info(logCommand);
 		super.setErrorHandler(handler);
 	}
 
@@ -1249,8 +1328,10 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	public CommandExecutor getCommandExecutor() {
-		CommandList.getInstance()
-				.reportSuccess("Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName() + "'");
+		
+		String logCommand = "Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName() + "'";
+		CommandList.getInstance().reportSuccess(logCommand);
+		log.info(logCommand);
 		return super.getCommandExecutor();
 	}
 
@@ -1263,8 +1344,11 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	protected void setCommandExecutor(CommandExecutor executor) {
-		CommandList.getInstance().reportSuccess("Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
-				+ "' with input parameter(s) '" + executor + "'");
+		
+		String logCommand = "Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
+				+ "' with input parameter(s) '" + executor + "'";
+		CommandList.getInstance().reportSuccess(logCommand);
+		log.info(logCommand);
 		super.setCommandExecutor(executor);
 	}
 
@@ -1275,8 +1359,6 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	public Capabilities getCapabilities() {
-		// CommandList.getInstance().reportSuccess("Invoking '" +
-		// Thread.currentThread().getStackTrace()[1].getMethodName() + "'");
 		return super.getCapabilities();
 	}
 
@@ -1287,8 +1369,11 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	public void get(String url) {
-		CommandList.getInstance().reportSuccess("Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
-				+ "' with input parameter(s) '" + url + "'");
+		
+		String logCommand = "Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
+				+ "' with input parameter(s) '" + url + "'";
+		CommandList.getInstance().reportSuccess(logCommand);
+		log.info(logCommand);
 		super.get(url);
 	}
 
@@ -1299,8 +1384,10 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	public String getTitle() {
-		CommandList.getInstance()
-				.reportSuccess("Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName() + "'");
+		
+		String logCommand = "Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName() + "'";
+		CommandList.getInstance().reportSuccess(logCommand);
+		log.info(logCommand);
 		return super.getTitle();
 	}
 
@@ -1311,8 +1398,10 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	public String getCurrentUrl() {
-		CommandList.getInstance()
-				.reportSuccess("Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName() + "'");
+		
+		String logCommand = "Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName() + "'";
+		CommandList.getInstance().reportSuccess(logCommand);
+		log.info(logCommand);
 		return super.getCurrentUrl();
 	}
 
@@ -1325,8 +1414,11 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	public <X> X getScreenshotAs(OutputType<X> outputType) throws WebDriverException {
-		CommandList.getInstance().reportSuccess("Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
-				+ "' with input parameter(s) '" + outputType + "'");
+		
+		String logCommand = "Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
+				+ "' with input parameter(s) '" + outputType + "'";
+		CommandList.getInstance().reportSuccess(logCommand);
+		log.info(logCommand);
 		return super.getScreenshotAs(outputType);
 	}
 
@@ -1339,9 +1431,6 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	protected WebElement findElement(String by, String using) {
-		// CommandList.getInstance().reportSuccess("Invoking '" +
-		// Thread.currentThread().getStackTrace()[1].getMethodName()
-		// + "' with input parameter(s) '" + by + "' and '" + using + "'");
 		return super.findElement(by, using);
 	}
 
@@ -1355,10 +1444,6 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	protected void setFoundBy(SearchContext context, WebElement element, String by, String using) {
-		// CommandList.getInstance().reportSuccess("Invoking '" +
-		// Thread.currentThread().getStackTrace()[1].getMethodName()
-		// + "' with input parameter(s) '" + context + "', '" + element + "', '"
-		// + by + "', and '" + using + "'");
 		super.setFoundBy(context, element, by, using);
 	}
 
@@ -1371,9 +1456,6 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	protected List<WebElement> findElements(String by, String using) {
-		// CommandList.getInstance().reportSuccess("Invoking '" +
-		// Thread.currentThread().getStackTrace()[1].getMethodName()
-		// + "' with input parameter(s) '" + by + "' and '" + using + "'");
 		return super.findElements(by, using);
 	}
 
@@ -1384,8 +1466,10 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	public String getPageSource() {
-		CommandList.getInstance()
-				.reportSuccess("Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName() + "'");
+		
+		String logCommand = "Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName() + "'";
+		CommandList.getInstance().reportSuccess(logCommand);
+		log.info(logCommand);
 		return super.getPageSource();
 	}
 
@@ -1396,8 +1480,10 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	public void close() {
-		CommandList.getInstance()
-				.reportSuccess("Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName() + "'");
+		
+		String logCommand = "Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName() + "'";
+		CommandList.getInstance().reportSuccess(logCommand);
+		log.info(logCommand);
 		super.close();
 	}
 
@@ -1408,8 +1494,10 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	public void quit() {
-		CommandList.getInstance()
-				.reportSuccess("Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName() + "'");
+		
+		String logCommand = "Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName() + "'";
+		CommandList.getInstance().reportSuccess(logCommand);
+		log.info(logCommand);
 		super.quit();
 	}
 
@@ -1420,8 +1508,10 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	public Set<String> getWindowHandles() {
-		CommandList.getInstance()
-				.reportSuccess("Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName() + "'");
+		
+		String logCommand = "Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName() + "'";
+		CommandList.getInstance().reportSuccess(logCommand);
+		log.info(logCommand);
 		return super.getWindowHandles();
 	}
 
@@ -1432,8 +1522,10 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	public String getWindowHandle() {
-		CommandList.getInstance()
-				.reportSuccess("Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName() + "'");
+		
+		String logCommand = "Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName() + "'";
+		CommandList.getInstance().reportSuccess(logCommand);
+		log.info(logCommand);
 		return super.getWindowHandle();
 	}
 
@@ -1445,8 +1537,11 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	public Object executeScript(String script, Object... args) {
-		CommandList.getInstance().reportSuccess("Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
-				+ "' with input parameter(s) '" + script + "' and '" + args + "'");
+		
+		String logCommand = "Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
+				+ "' with input parameter(s) '" + script + "' and '" + args + "'";
+		CommandList.getInstance().reportSuccess(logCommand);
+		log.info(logCommand);
 		return super.executeScript(script, args);
 	}
 
@@ -1459,8 +1554,11 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	public Object executeAsyncScript(String script, Object... args) {
-		CommandList.getInstance().reportSuccess("Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
-				+ "' with input parameter(s) '" + script + "' and '" + args + "'");
+		
+		String logCommand = "Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
+				+ "' with input parameter(s) '" + script + "' and '" + args + "'";
+		CommandList.getInstance().reportSuccess(logCommand);
+		log.info(logCommand);
 		return super.executeAsyncScript(script, args);
 	}
 
@@ -1471,8 +1569,10 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	public TargetLocator switchTo() {
-		CommandList.getInstance()
-				.reportSuccess("Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName() + "'");
+		
+		String logCommand = "Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName() + "'";
+		CommandList.getInstance().reportSuccess(logCommand);
+		log.info(logCommand);
 		return super.switchTo();
 	}
 
@@ -1483,8 +1583,10 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	public Navigation navigate() {
-		CommandList.getInstance()
-				.reportSuccess("Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName() + "'");
+		
+		String logCommand = "Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName() + "'";
+		CommandList.getInstance().reportSuccess(logCommand);
+		log.info(logCommand);
 		return super.navigate();
 	}
 
@@ -1495,9 +1597,6 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	public Options manage() {
-		// CommandList.getInstance()
-		// .reportSuccess("Invoking '" +
-		// Thread.currentThread().getStackTrace()[1].getMethodName() + "'");
 		return super.manage();
 	}
 
@@ -1510,8 +1609,11 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	protected void setElementConverter(JsonToWebElementConverter converter) {
-		CommandList.getInstance().reportSuccess("Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
-				+ "' with input parameter(s) '" + converter + "'");
+		
+		String logCommand = "Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
+				+ "' with input parameter(s) '" + converter + "'";
+		CommandList.getInstance().reportSuccess(logCommand);
+		log.info(logCommand);
 		super.setElementConverter(converter);
 	}
 
@@ -1522,8 +1624,10 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	protected JsonToWebElementConverter getElementConverter() {
-		CommandList.getInstance()
-				.reportSuccess("Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName() + "'");
+		
+		String logCommand = "Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName() + "'";
+		CommandList.getInstance().reportSuccess(logCommand);
+		log.info(logCommand);
 		return super.getElementConverter();
 	}
 
@@ -1536,8 +1640,11 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	public void setLogLevel(Level level) {
-		CommandList.getInstance().reportSuccess("Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
-				+ "' with input parameter(s) '" + level + "'");
+		
+		String logCommand = "Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName()
+				+ "' with input parameter(s) '" + level + "'";
+		CommandList.getInstance().reportSuccess(logCommand);
+		log.info(logCommand);
 		super.setLogLevel(level);
 	}
 
@@ -1548,8 +1655,10 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	public Keyboard getKeyboard() {
-		CommandList.getInstance()
-				.reportSuccess("Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName() + "'");
+		
+		String logCommand = "Invoking '" + Thread.currentThread().getStackTrace()[1].getMethodName() + "'";
+		CommandList.getInstance().reportSuccess(logCommand);
+		log.info(logCommand);
 		return super.getKeyboard();
 	}
 
@@ -1563,12 +1672,6 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	protected void log(SessionId sessionId, String commandName, Object toLog, When when) {
-		// CommandList.getInstance().reportSuccess(
-		// "Invoking '" +
-		// Thread.currentThread().getStackTrace()[1].getMethodName() + "' with
-		// input parameter(s) '"
-		// + sessionId + "', '" + commandName + "', '" + toLog + "' and '" +
-		// when + "'");
 		super.log(sessionId, commandName, toLog, when);
 	}
 
@@ -1579,8 +1682,6 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	public FileDetector getFileDetector() {
-		// CommandList.getInstance().reportSuccess("Invoking '" +
-		// Thread.currentThread().getStackTrace()[1].getMethodName() + "'");
 		return super.getFileDetector();
 	}
 
@@ -1591,8 +1692,6 @@ public class AndroidDriver<RequiredElementType extends WebElement>
 	 */
 	@Override
 	public String toString() {
-		// CommandList.getInstance().reportSuccess("Invoking '" +
-		// Thread.currentThread().getStackTrace()[1].getMethodName() + "'");
 		return super.toString();
 	}
 }
