@@ -2,6 +2,7 @@ package appium.report;
 
 import java.io.File;
 
+import org.apache.log4j.Logger;
 import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.Reporter;
@@ -18,17 +19,13 @@ import appium.util.TestUtility;
  * It has an extra functionality that it takes a screenshot(of the browser
  * window) when a test pass or fails or skip.
  * 
- * Example usage:
- * 
- * <pre>
- * <testng outputdir="reports/reportng" useDefaultListeners="true"
- *         listener="org.uncommons.reportng.HTMLReporter,org.uncommons.reportng.JUnitXMLReporter,appium.report.ReportNGCommandLogListener">
- * </pre>
  * 
  * @author A. K. Sahu
  */
 public class ReportNGCommandLogListener extends TestListenerAdapter {
-
+	
+	private static Logger log = Logger.getLogger(ReportNGCommandLogListener.class);
+	
 	private int divId = 1;
 	private int count = 0;
 
@@ -137,7 +134,7 @@ public class ReportNGCommandLogListener extends TestListenerAdapter {
 			Reporter.setCurrentTestResult(null);
 
 		} catch (Exception e) {
-			System.err.println(e.getMessage());
+			log.error(e.getMessage());
 		}
 
 	}
@@ -149,7 +146,8 @@ public class ReportNGCommandLogListener extends TestListenerAdapter {
 	 */
 	private void generateCommandLogReport(int divId) {
 
-		if (!ConfigUtil.getProperty("CAPTURE_DRIVER_COMMANDS").equals("true")) {
+		if (CommandList.getInstance().isEmptySuccessList()
+				|| !ConfigUtil.getProperty("CAPTURE_DRIVER_COMMANDS").equals("true")) {
 			CommandList.getInstance().clearCommandLog();
 			return;
 		}
