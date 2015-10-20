@@ -29,7 +29,7 @@ And then navigate to the test project directory i.e. **AppiumTestBase** location
 Your tests should execute and prepare the report(I have used ReportNG report and customized a bit to get more user friendly report).
 
 ###Report Example:
- - Test Summary: 
+ - Test Summary(Execution status): 
    ![alt tag](https://cloud.githubusercontent.com/assets/1167000/10606433/7f3df882-7750-11e5-924e-d1ae2dc74269.png)
 
  - Summary in Highchart: 
