@@ -29,5 +29,17 @@ And then navigate to the test project directory i.e. **AppiumTestBase** location
 Your tests should execute and prepare the report(I have used ReportNG report and customized a bit to get more user friendly report).
 
 ###Report Example:
+ - Test Summary: 
+   ![alt tag](https://cloud.githubusercontent.com/assets/1167000/10606433/7f3df882-7750-11e5-924e-d1ae2dc74269.png)
 
-[Will update soon :)]
+ - Summary in Highchart: 
+   ![alt tag](https://cloud.githubusercontent.com/assets/1167000/10606437/84f4d4b2-7750-11e5-97ca-8f587e363654.png)
+ 
+- Test Summary with %: 
+   ![alt tag](https://cloud.githubusercontent.com/assets/1167000/10606440/88fc157a-7750-11e5-988e-12a5dc15d1ab.png)
+
+ - Failed Test Deatils: 
+   ![alt tag](https://cloud.githubusercontent.com/assets/1167000/10606441/8b609fc0-7750-11e5-9548-1293e270676f.png)
+
+ - Failed Test Details with all Driver Commands(steps):
+   ![alt tag](https://cloud.githubusercontent.com/assets/1167000/10606445/8ddcabc2-7750-11e5-9129-178cc82f3fbc.png)
