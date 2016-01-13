@@ -24,7 +24,7 @@ import appium.util.ScreenshotCapture;
  *
  */
 public class TestBase {
-	
+
 	private static Logger log = Logger.getLogger(TestBase.class);
 
 	private AppiumServer service = null;
@@ -35,9 +35,18 @@ public class TestBase {
 	private String apkFile = "WordPress.apk";
 	private String appPackage = "org.wordpress.android";
 	private String appActivity = "org.wordpress.android.ui.accounts.SignInActivity";
+	String nameOfAVD = "AVD_for_Nexus_4_by_Google";// Nexus7
 
 	@BeforeSuite
-	public void setUp() throws MalformedURLException {
+	public void setUp() throws MalformedURLException, InterruptedException {
+
+		if (!AVDManager.isEmulatorOrDeviceReady()) {
+			// for starting android emulator automatically
+			AVDManager.launchEmulator(nameOfAVD);
+			AVDManager.waitForEmulatorToBeReady();
+			Thread.sleep(30000);// 30sec wait
+			AVDManager.unlockScreen();
+		}
 
 		service = new AppiumServer();
 		service.startAppiumServer();
@@ -49,7 +58,7 @@ public class TestBase {
 		capabilities.setCapability(CapabilityType.BROWSER_NAME, "Android");
 		capabilities.setCapability("platformName", "Android");
 		// capabilities.setCapability("platformVersion", "4.4.2");
-		capabilities.setCapability("deviceName", "Nexus7");
+		capabilities.setCapability("deviceName", nameOfAVD);
 
 		capabilities.setCapability("app", app.getAbsolutePath());
 		capabilities.setCapability("appPackage", appPackage);
@@ -57,7 +66,7 @@ public class TestBase {
 		capabilities.setCapability("appWaitActivity", appActivity);
 		// hide soft keyboard
 		capabilities.setCapability("unicodeKeyboard", "true");
-		// Doesn’t stop the process of the app under test, before starting the
+		// Doesn't stop the process of the app under test, before starting the
 		// app using adb.
 		capabilities.setCapability("dontStopAppOnReset", "true");
 
@@ -86,7 +95,7 @@ public class TestBase {
 			ScreenshotCapture.takeScreenshot(driver, result.getMethod().getMethodName());
 			driver.resetApp();
 		}
-		log.info("Executed "+result.getMethod().getMethodName()+" test successfully.");
+		log.info("Executed " + result.getMethod().getMethodName() + " test successfully.");
 	}
 
 	@AfterSuite(alwaysRun = true)
@@ -96,5 +105,6 @@ public class TestBase {
 			// driver.removeApp(appPackage);
 		}
 		service.stopAppiumServer();
+		AVDManager.closeEmulator();
 	}
 }
