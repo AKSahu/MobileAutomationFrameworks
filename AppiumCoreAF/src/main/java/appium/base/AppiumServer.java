@@ -24,6 +24,7 @@ public class AppiumServer {
 	public AppiumServer() {
 		File classPathRoot = new File(System.getProperty("user.dir"));
 		String osName = System.getProperty("os.name");
+		log.info("Current operating system is:" + osName);
 
 		if (osName.contains("Windows")) {
 			service = AppiumDriverLocalService
