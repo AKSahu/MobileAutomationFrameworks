@@ -7,6 +7,15 @@ import java.util.concurrent.TimeUnit;
 
 import appium.util.ConfigUtil;
 
+/**
+ * This class manages the android AVD such as <br>
+ * launching an emulator, killing the running emulators, waiting for the
+ * emulator to be in ready state, unlock the emulator, is an emulator is running
+ * or a device is plugged-in etc.
+ * 
+ * @author A. K. Sahu
+ *
+ */
 public class AVDManager {
 
 	private static String sdkPath = ConfigUtil.getProperty("SDK_INSTALLATION_DIRECTORY");
@@ -14,7 +23,7 @@ public class AVDManager {
 	private static String emulatorPath = sdkPath + "tools" + File.separator + "emulator";
 
 	/**
-	 * Starts an emulator
+	 * Starts an emulator for the provided AVD name
 	 * 
 	 * @param nameOfAVD
 	 */
@@ -24,14 +33,14 @@ public class AVDManager {
 		try {
 			Process process = new ProcessBuilder(aCommand).start();
 			process.waitFor(180, TimeUnit.SECONDS);
-			System.out.println("Emulator started successfully!");
+			System.out.println("Emulator launched successfully!");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
 	/**
-	 * Kills all opened emulators
+	 * Kills all running emulators
 	 */
 	public static void closeEmulator() {
 		System.out.println("Killing emulator...");
@@ -66,7 +75,6 @@ public class AVDManager {
 		try {
 			String[] commandBootComplete = new String[] { adbPath, "shell", "getprop", "dev.bootcomplete" };
 			Process process = new ProcessBuilder(commandBootComplete).start();
-
 			BufferedReader inputStream = new BufferedReader(new InputStreamReader(process.getInputStream()));
 
 			// wait till the property returns '1'
@@ -78,14 +86,15 @@ public class AVDManager {
 
 			String[] commandBootAnim = new String[] { adbPath, "shell", "getprop", "init.svc.bootanim" };
 			process = new ProcessBuilder(commandBootAnim).start();
-
 			inputStream = new BufferedReader(new InputStreamReader(process.getInputStream()));
+
 			// wait till the property returns 'stopped'
 			while (!inputStream.readLine().equals("stopped")) {
 				process.waitFor(1, TimeUnit.SECONDS);
 				process = new ProcessBuilder(commandBootAnim).start();
 				inputStream = new BufferedReader(new InputStreamReader(process.getInputStream()));
 			}
+
 			System.out.println("Emulator is ready to use!");
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -102,7 +111,7 @@ public class AVDManager {
 	 * 
 	 * @return
 	 */
-	public static boolean isEmulatorOrDeviceReady() {
+	public static boolean isEmulatorOrDeviceRunning() {
 
 		try {
 			String[] commandDevices = new String[] { adbPath, "devices" };
@@ -128,13 +137,18 @@ public class AVDManager {
 	public static void main(String[] args) throws InterruptedException {
 		String nameOfAVD = "AVD_for_Nexus_4_by_Google";
 
-		launchEmulator(nameOfAVD);
-		waitForEmulatorToBeReady();
-		unlockScreen();
-		Thread.sleep(60000);// 1 min
+		if (!isEmulatorOrDeviceRunning()) {
+			launchEmulator(nameOfAVD);
+			waitForEmulatorToBeReady();
+			unlockScreen();
+			Thread.sleep(60000);// 1 min
+		}
+
+		// do your testing stuff here
+
 		closeEmulator();
 
-		System.out.println("Is there any emulator launched or a device is plugged in? :" + isEmulatorOrDeviceReady());
+		System.out.println("Is there any emulator launched or a device is plugged in? :" + isEmulatorOrDeviceRunning());
 
 		System.out.println("Execution completed!");
 	}

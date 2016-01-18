@@ -40,7 +40,7 @@ public class TestBase {
 	@BeforeSuite
 	public void setUp() throws MalformedURLException, InterruptedException {
 
-		if (!AVDManager.isEmulatorOrDeviceReady()) {
+		if (!AVDManager.isEmulatorOrDeviceRunning()) {
 			// for starting android emulator automatically
 			AVDManager.launchEmulator(nameOfAVD);
 			AVDManager.waitForEmulatorToBeReady();
